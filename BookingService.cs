@@ -37,18 +37,36 @@ namespace AirportTicketBookingSystem
             bookings.Add(booking);
             return booking;
         }
-
-        public void CancelBooking(int bookingId)
+        // double ensure the cancellation
+        // cancel flights according to passenger id without meddling 
+        public void CancelBooking(int bookingId, int passengerId)
         {
             Booking booking = bookings.FirstOrDefault(b => b.BookingId == bookingId);
+
             if (booking == null)
             {
                 Console.WriteLine("Booking not found to be cancelled.");
                 return;
             }
 
-            booking.Status = BookingStatus.Cancelled;
-            Console.WriteLine($"Booking {bookingId} has been cancelled.");
+            if (booking.PassengerId != passengerId)
+            {
+                Console.WriteLine("This booking does not belong to you.");
+                return;
+            }
+
+            Console.WriteLine("Are you sure you want to cancel this booking? y/n");
+            string answer = Console.ReadLine()?.ToLower();
+
+            if (answer == "y")
+            {
+                booking.Status = BookingStatus.Cancelled;
+                Console.WriteLine($"Booking {bookingId} has been cancelled.");
+            }
+            else
+            {
+                Console.WriteLine("Cancellation aborted.");
+            }
         }
 
         public void ModifyBooking(int bookingId, FlightClass newClass, Flight flight)

@@ -150,7 +150,7 @@ namespace AirportTicketBookingSystem
                             break;
                         }
 
-                        bookingService.CancelBooking(cancelId);
+                        bookingService.CancelBooking(cancelId, passengerId);
                         bookingRepo.Save(bookings);
                         break;
 

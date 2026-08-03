@@ -10,15 +10,5 @@ namespace AirportTicketBookingSystem
         public string Name { get; set; }
         public string Email { get; set; }
 
-
-        //book a flight
-       
-
-
-        // search for available flights
-
-
-
-        // manage bookings
     }
 }
