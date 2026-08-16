@@ -141,12 +141,19 @@ namespace AirportTicketBookingSystem
                                 Console.WriteLine($"[{b.BookingId}] Flight {b.FlightID} | {b.FlightClass} | {b.Price} | {b.Status}");
                         }
                         break;
-
                     case "4":
                         Console.Write("Enter Booking ID to cancel: ");
                         if (!int.TryParse(Console.ReadLine(), out int cancelId))
                         {
                             Console.WriteLine("Invalid input. Booking ID must be a number.");
+                            break;
+                        }
+
+                        Console.Write("Are you sure you want to cancel this booking? y/n: ");
+                        string confirm = Console.ReadLine()?.ToLower();
+                        if (confirm != "y")
+                        {
+                            Console.WriteLine("Cancellation aborted.");
                             break;
                         }
 

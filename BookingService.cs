@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace AirportTicketBookingSystem
 {
-    internal class BookingService
+    public class BookingService
     {
         private List<Booking> bookings;
         private FlightService flightService;
@@ -55,18 +55,8 @@ namespace AirportTicketBookingSystem
                 return;
             }
 
-            Console.WriteLine("Are you sure you want to cancel this booking? y/n");
-            string answer = Console.ReadLine()?.ToLower();
-
-            if (answer == "y")
-            {
-                booking.Status = BookingStatus.Cancelled;
-                Console.WriteLine($"Booking {bookingId} has been cancelled.");
-            }
-            else
-            {
-                Console.WriteLine("Cancellation aborted.");
-            }
+            booking.Status = BookingStatus.Cancelled;
+            Console.WriteLine($"Booking {bookingId} has been cancelled.");
         }
 
         public void ModifyBooking(int bookingId, FlightClass newClass, Flight flight)

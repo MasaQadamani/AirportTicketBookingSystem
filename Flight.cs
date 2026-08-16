@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AirportTicketBookingSystem
 {
-    internal class Flight
+    public class Flight
     {
         public int FlightID { get; set; }
 

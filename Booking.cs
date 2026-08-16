@@ -2,7 +2,7 @@
 
 namespace AirportTicketBookingSystem
 {
-    internal class Booking
+    public class Booking
     {
         public int BookingId { get; set; }
         public int FlightID { get; set; }
