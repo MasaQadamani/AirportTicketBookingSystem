@@ -2,6 +2,6 @@
   <Folder Name="/Solution Items/">
     <File Path=".github/workflows/build-and-test.yml" />
   </Folder>
-  <Project Path="../AirportTicketBookingSystem.Tests/AirportTicketBookingSystem.Tests.csproj" Id="76ffe714-4751-4b2a-be87-435bcad7dd14" />
+  <Project Path="AirportTicketBookingSystem.Tests/AirportTicketBookingSystem.Tests.csproj" Id="76ffe714-4751-4b2a-be87-435bcad7dd14" />
   <Project Path="AirportTicketBookingSystem.csproj" />
 </Solution>
