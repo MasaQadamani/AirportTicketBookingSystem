@@ -39,7 +39,7 @@ namespace AirportTicketBookingSystem
         }
         // double ensure the cancellation
         // cancel flights according to passenger id without meddling 
-        public void CancelBooking(int bookingId, int passengerId)
+        public void CancelBooking(int bookingId, int passengerId, bool isConfirmed)
         {
             Booking booking = bookings.FirstOrDefault(b => b.BookingId == bookingId);
 
@@ -52,6 +52,12 @@ namespace AirportTicketBookingSystem
             if (booking.PassengerId != passengerId)
             {
                 Console.WriteLine("This booking does not belong to you.");
+                return;
+            }
+
+            if (!isConfirmed)
+            {
+                Console.WriteLine("Cancellation aborted.");
                 return;
             }
 

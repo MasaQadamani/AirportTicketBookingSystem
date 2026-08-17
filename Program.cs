@@ -150,14 +150,9 @@ namespace AirportTicketBookingSystem
                         }
 
                         Console.Write("Are you sure you want to cancel this booking? y/n: ");
-                        string confirm = Console.ReadLine()?.ToLower();
-                        if (confirm != "y")
-                        {
-                            Console.WriteLine("Cancellation aborted.");
-                            break;
-                        }
+                        bool confirmed = Console.ReadLine()?.ToLower() == "y";
 
-                        bookingService.CancelBooking(cancelId, passengerId);
+                        bookingService.CancelBooking(cancelId, passengerId, confirmed);
                         bookingRepo.Save(bookings);
                         break;
 
